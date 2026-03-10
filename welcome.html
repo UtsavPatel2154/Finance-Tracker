@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Finance Tracker - Welcome</title>
+  <style>
+    /* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: url('image.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1e293b;
+  padding: 15px 30px;
+  color: white;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  position: relative;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #38bdf8;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #334155;
+  border-radius: 5px;
+  min-width: 200px;
+  z-index: 1000;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+}
+
+.dropdown-menu li {
+  border-bottom: 1px solid #475569;
+}
+
+.dropdown-menu li:last-child {
+  border-bottom: none;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px;
+  color: white;
+  font-size: 0.95rem;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.0); /* More transparent */
+  backdrop-filter: blur(8px); /* Adds a glassy blur effect */
+  -webkit-backdrop-filter: blur(8px); /* For Safari support */
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+
+
+.welcome {
+  text-align: center;
+  max-width: 600px;
+}
+
+.welcome h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.welcome p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.get-started-btn {
+  padding: 12px 25px;
+  background-color: #1e40af;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.get-started-btn:hover {
+  background-color: #2563eb;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+
+    <div class="logo">💰 Finance Tracker</div>
+    <nav>
+      <ul>
+        <li><a href="signup.html">Create Account</a></li>
+        <li class="dropdown">
+          <a href="#">Contact</a>
+          <ul class="dropdown-menu">
+            <li><a href="mailto:utsavpatelm09@gmail.com">Email: financetracker@gmail.com</a></li>
+            <li><a href="#">Mobile: +91 6354834539</a></li>
+            <li><a href="#">+91 9924631953</a></li>
+            <li><a href="#">+91 7096067114</a></li>
+            <li><a href="#">+91 9104866522</a></li>
+          </ul>
+        <li><a href="About Us.html">About Us</a></li>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="welcome">
+      <h1>Welcome to Your Personal Finance Tracker</h1>
+      <p><strong>Manage your expenses, set goals, and achieve financial freedom.</strong></p>
+      <a href="login.html" class="get-started-btn">Get Started</a>
+    </section>
+  </main>
+</body>
+</html>

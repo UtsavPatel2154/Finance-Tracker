@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 20px;
+        }
+        
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: auto;
+        }
+        
+        h2 {
+            color: #333;
+        }
+        
+        .report-box {
+            margin-top: 20px;
+        }
+        
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        
+        span {
+            font-weight: bold;
+            color: #2a9d8f;
+        }
+        
+        .links {
+            margin-top: 20px;
+        }
+        
+        .links a {
+            text-decoration: none;
+            background: #2a9d8f;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Financial Report</h2>
+        <div class="report-box">
+            <p><strong>Total Income:</strong> <span id="totalIncome">0</span></p>
+            <p><strong>Total Expenses:</strong> <span id="totalExpenses">0</span></p>
+            <p><strong>Total Savings:</strong> <span id="totalSavings">0</span></p>
+            <p><strong>Budget Balance:</strong> <span id="budgetBalance">0</span></p>
+        </div>
+
+        <div class="links">
+            <a href="income.html">Income</a>
+            <a href="expense.html">Expenses</a>
+            <a href="savings.html">Savings</a>
+            <a href="budget.html">Budget</a>
+            <a href="home.html">Home</a>
+        </div>
+    </div>
+
+    <script>
+        // Fetch stored data from localStorage (assuming other pages store their data)
+        let totalIncome = localStorage.getItem("totalIncome") || 0;
+        let totalExpenses = localStorage.getItem("totalExpenses") || 0;
+        let totalSavings = localStorage.getItem("totalSavings") || 0;
+
+        // Convert to number (in case data is stored as a string)
+        totalIncome = parseFloat(totalIncome);
+        totalExpenses = parseFloat(totalExpenses);
+        totalSavings = parseFloat(totalSavings);
+
+        // Calculate budget balance
+        let budgetBalance = totalIncome - totalExpenses;
+
+        // Format numbers as INR currency
+        function formatINR(amount) {
+
+            return new Intl.NumberFormat('en-IN', {
+                style: 'currency',
+                currency: 'INR'
+            }).format(amount);
+        }
+
+        // Update the report page with formatted values
+        document.getElementById("totalIncome").textContent = formatINR(totalIncome);
+        document.getElementById("totalExpenses").textContent = formatINR(totalExpenses);
+        document.getElementById("totalSavings").textContent = formatINR(totalSavings);
+        document.getElementById("budgetBalance").textContent = formatINR(budgetBalance);
+    </script>
+</body>
+
+</html>

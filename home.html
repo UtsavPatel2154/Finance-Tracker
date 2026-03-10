@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Finance Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Open+Sans&family=Montserrat&family=Lobster&family=Playfair+Display&family=Pacifico&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-image: url('bgimage.jpg');
+            display: flex;
+            justify-content: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        header {
+            margin-bottom: 2rem;
+        }
+        
+        header h1 {
+            color: #082c28;
+            font-size: 2.5rem;
+        }
+        
+        .intro {
+            margin-bottom: 2rem;
+            color: #ffffff;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .feature-card {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-card h3 {
+            color: #0f9b8e;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-card p {
+            font-size: 0.9rem;
+            color: #de7926;
+        }
+        
+        footer {
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            color: #e68b41;
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: rgba(8, 44, 40, 0.0);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: flex-end;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2); 
+            backdrop-filter: blur(6px);
+        }
+
+        .navbar a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+            padding: 8px 12px;
+        }
+
+        .navbar a:hover {
+            color: #00ffd5;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            backdrop-filter: blur(6px);
+            background-color: #f0f0f0;
+            color: #333;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body.dark-mode {
+            background-color: #1f1f1f;
+            color: #f9f9f9;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1><strong>Welcome to Finance Tracker</strong></h1>
+        </header>
+
+        <section class="features">
+            <div class="feature-card" onclick="window.location.href='income.php'">
+                <h3>Income Tracking</h3>
+                <p>Record and monitor your income sources to understand how much you're earning monthly or annually.</p>
+            </div>
+            <div class="feature-card" onclick="window.location.href='expense.php'">
+                <h3>Expense Tracking</h3>
+                <p>Log your expenses to keep a close eye on where your money is going and find areas to cut costs.</p>
+            </div>
+            <div class="feature-card" onclick="window.location.href='budget.php'">
+                <h3>Budget Management</h3>
+                <p>Create budgets to set limits on different spending categories and stay financially disciplined.</p>
+            </div>
+            <div class="feature-card" onclick="window.location.href='Savings.php'">
+                <h3>Savings Goals</h3>
+                <p>Set and track your savings goals to ensure you're building a strong financial foundation.</p>
+            </div>
+            <div class="feature-card" onclick="window.location.href='report.php'">
+                <h3>Financial Report</h3>
+                <p>Gain insights through detailed reports on your spending patterns and financial habits.</p>
+            </div>
+        </section>
+        
+        <nav class="navbar">
+            <a href="profile.php">Profile</a>
+            <a href="feedback.html">Feedback</a>
+            <a href="setting.html">Settings</a>
+            <a href="welcome.html" onclick="logout()">Logout</a>
+        </nav>
+
+        <script>
+        function logout() {
+            localStorage.removeItem("loggedIn");
+            alert("You have been logged out.");
+            window.location.href = "welcome.html";
+        }
+        </script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('user-theme');
+      const savedFont = localStorage.getItem('user-font');
+  
+      if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+      }
+  
+      if (savedFont) {
+        document.body.style.fontFamily = savedFont;
+      }
+    });
+  </script>
+  
+</body>
+
+</html>

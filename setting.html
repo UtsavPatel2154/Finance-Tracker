@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Finance Tracker - Settings</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Open+Sans&family=Montserrat&family=Lobster&family=Playfair+Display&family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f0f0f0;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark-mode {
+      background-color: #1f1f1f;
+      color: #f9f9f9;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    body.dark-mode .container {
+      background-color: #2d2d2d;
+    }
+
+    h2 {
+      text-align: center;
+      color: #0f9b8e;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 12px;
+      background-color: #0f9b8e;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0b7c71;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Settings</h2>
+
+    <label for="theme-select">Select Theme:</label>
+    <select id="theme-select">
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </select>
+
+    <label for="font-select">Select Font:</label>
+    <select id="font-select">
+      <option value="Arial, sans-serif">Arial</option>
+      <option value="'Roboto', sans-serif">Roboto</option>
+      <option value="'Open Sans', sans-serif">Open Sans</option>
+      <option value="'Montserrat', sans-serif">Montserrat</option>
+      <option value="'Lobster', cursive">Lobster</option>
+      <option value="'Playfair Display', serif">Playfair Display</option>
+      <option value="'Pacifico', cursive">Pacifico</option>
+      <option value="Georgia, serif">Georgia</option>
+      <option value="Verdana, sans-serif">Verdana</option>
+      <option value="'Courier New', monospace">Courier New</option>
+      <option value="'Times New Roman', serif">Times New Roman</option>
+    </select>
+
+    <button onclick="saveSettings()">Save Changes</button>
+  </div>
+
+  <script>
+    const themeSelect = document.getElementById('theme-select');
+    const fontSelect = document.getElementById('font-select');
+
+    // Load existing settings
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('user-theme');
+      const savedFont = localStorage.getItem('user-font');
+
+      if (savedTheme) {
+        themeSelect.value = savedTheme;
+        document.body.classList.toggle('dark-mode', savedTheme === 'dark');
+      }
+
+      if (savedFont) {
+        fontSelect.value = savedFont;
+        document.body.style.fontFamily = savedFont;
+      }
+    });
+
+    themeSelect.addEventListener('change', () => {
+      document.body.classList.toggle('dark-mode', themeSelect.value === 'dark');
+    });
+
+    fontSelect.addEventListener('change', () => {
+      document.body.style.fontFamily = fontSelect.value;
+    });
+
+    function saveSettings() {
+      const theme = themeSelect.value;
+      const font = fontSelect.value;
+
+      localStorage.setItem('user-theme', theme);
+      localStorage.setItem('user-font', font);
+
+      alert("Settings saved!");
+    }
+  </script>
+
+</body>
+</html>
